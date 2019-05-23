@@ -117,7 +117,7 @@ public class MainActivity extends Activity {
 
                 //Intent eventActivity = new Intent(MainActivity.this, EventActivity.class);
                 //eventActivity.putExtra("eventDate", eventInputTv.getText().toString());
-                //or create it inside the text change
+                //or create it inside the text change.
                 eventInputTv.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
