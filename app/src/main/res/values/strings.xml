@@ -25,4 +25,7 @@
     <string name="event_date_hint">01/01/2011</string>
     <string name="phone_number_hint_txt">050-1234567</string>
     <string name="email_hint_txt">example@gmail.com</string>
+    <string name="enter_phone">Please enter a phone number</string>
+    <string name="enter_email">Please enter email</string>
+    <string name="enter_date">Please enter a date</string>
 </resources>

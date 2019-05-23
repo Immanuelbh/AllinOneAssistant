@@ -90,34 +90,6 @@ public class EventActivity extends AppCompatActivity {
             }
         });
 
-        /*eventDateEt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get Current Date
-                final Calendar c = Calendar.getInstance();
-                int year = c.get(Calendar.YEAR);
-                int month = c.get(Calendar.MONTH);
-                int day = c.get(Calendar.DAY_OF_MONTH);
-
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(EventActivity.this,
-                        new DatePickerDialog.OnDateSetListener() {
-
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-
-                                eventDateEt.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-
-                                eventDay = dayOfMonth;
-                                eventMonth = monthOfYear;
-                                eventYear = year;
-                            }
-                        }, year, month, day);
-                datePickerDialog.show();
-            }
-        });*/
-
         //get time
         eventTimeTv = findViewById(R.id.event_time_tv);
         Calendar c = Calendar.getInstance();

@@ -16,6 +16,7 @@
         android:gravity="center"
         android:focusable="true"
         android:focusableInTouchMode="true"
+        android:id="@+id/phone_bg"
         >
 
         <TextView
@@ -53,6 +54,7 @@
         android:background="#CE5858"
         android:layout_gravity="center"
         android:gravity="center"
+        android:id="@+id/email_bg"
         >
         <TextView
             android:layout_width="match_parent"
@@ -88,6 +90,7 @@
         android:background="#F0DB55"
         android:layout_gravity="center"
         android:gravity="center"
+        android:id="@+id/event_bg"
         >
         <TextView
             android:layout_width="match_parent"
