@@ -18,8 +18,11 @@ import java.util.Calendar;
 
 public class EventActivity extends AppCompatActivity {
 
-    EditText eventDateEt;
-    EditText eventTimeEt;
+    TextView eventDateTv;
+    TextView eventTimeTv;
+
+    //EditText eventDateEt;
+    //EditText eventTimeEt;
     EditText eventTitleEt;
 
     int eventMinute;
@@ -49,17 +52,17 @@ public class EventActivity extends AppCompatActivity {
         int day = current.get(Calendar.DAY_OF_MONTH);
 
         //get date
-        eventDateEt = findViewById(R.id.event_date_et);
+        eventDateTv = findViewById(R.id.event_date_tv);
         if(getIntent().getStringExtra("eventDate") != null){
-            eventDateEt.setText(getIntent().getStringExtra("eventDate"));
+            eventDateTv.setText(getIntent().getStringExtra("eventDate"));
         }
         else{
-            eventDateEt.setText(day + "/" + (month + 1) + "/" + year);
+            eventDateTv.setText(day + "/" + (month + 1) + "/" + year);
         }
 
         //eventDate.setText(current.DAY_OF_MONTH + "/" + (current.MONTH + 1) + "/" + current.YEAR);
 
-        eventDateEt.setOnClickListener(new View.OnClickListener() {
+        eventDateTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Get Current Date
@@ -76,7 +79,7 @@ public class EventActivity extends AppCompatActivity {
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
 
-                                eventDateEt.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                eventDateTv.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
 
                                 eventDay = dayOfMonth;
                                 eventMonth = monthOfYear;
@@ -116,15 +119,15 @@ public class EventActivity extends AppCompatActivity {
         });*/
 
         //get time
-        eventTimeEt = findViewById(R.id.event_time_et);
+        eventTimeTv = findViewById(R.id.event_time_tv);
         Calendar c = Calendar.getInstance();
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int minute = c.get(Calendar.MINUTE);
         if(minute < 10){
-            eventTimeEt.setText(hour + ":" + "0" + minute);
+            eventTimeTv.setText(hour + ":" + "0" + minute);
         }
         else{
-            eventTimeEt.setText(hour + ":" + minute);
+            eventTimeTv.setText(hour + ":" + minute);
         }
 
         eventHour = hour;
@@ -132,7 +135,7 @@ public class EventActivity extends AppCompatActivity {
 
         //eventTime.setText(current.HOUR_OF_DAY + ":" + current.MINUTE);
 
-        eventTimeEt.setOnClickListener(new View.OnClickListener() {
+        eventTimeTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Get Current time
@@ -149,10 +152,10 @@ public class EventActivity extends AppCompatActivity {
                                                   int minute) {
 
                                 if(minute < 10){
-                                    eventTimeEt.setText(hourOfDay + ":" + "0" + minute);
+                                    eventTimeTv.setText(hourOfDay + ":" + "0" + minute);
                                 }
                                 else{
-                                    eventTimeEt.setText(hourOfDay + ":" + minute);
+                                    eventTimeTv.setText(hourOfDay + ":" + minute);
                                 }
                                 eventHour = hourOfDay;
                                 eventMinute = minute;
