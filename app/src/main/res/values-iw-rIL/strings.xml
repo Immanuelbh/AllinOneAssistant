@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">All in one Assistant</string>
+    <string name="email_txt">אימייל</string>
+    <string name="event_txt">אירוע</string>
+    <string name="phone_txt">טלפון</string>
+    <string name="add_contact_txt">הוסף לאנשי קשר</string>
+    <string name="call_txt">חיוג</string>
+    <string name="choose_action_txt">בחר פעולה</string>
+    <string name="email_bcc_txt">עותק מוסתר</string>
+    <string name="email_cc_txt">עותק</string>
+    <string name="email_msg_hint">ההודעה שלך...</string>
+    <string name="email_subject_hint">נושא:</string>
+    <string name="email_to_hint">אל:</string>
+    <string name="send_txt">שליחה</string>
+    <string name="add_alarm_txt">הוסף שעון מעורר</string>
+    <string name="add_to_calendar_txt">הוסף ללוח שנה</string>
+    <string name="event_date_hint">01/01/2011</string>
+    <string name="event_info_txt">הוסף תיאור</string>
+    <string name="event_time_hint">00:00</string>
+    <string name="event_title_hint">כותרת</string>
+    <string name="phone_number_hint">הכנס מספר טלפון</string>
+    <string name="toast_number_call">הכנס מספר לחיוג</string>
+    <string name="toast_number_conact">הכנס מספר להוסיף לאנשי קשר</string>
+    <string name="toast_spt_not_support">מכשיר זה אינו תומך בפעולה זו</string>
+    <string name="email_chooser">בחר אפליקציית מייל:</string>
+    <string name="phone_number_hint_txt">050-1234567</string>
+    <string name="email_hint_txt">example@gmail.com</string>
+</resources>

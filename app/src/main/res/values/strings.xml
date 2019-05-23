@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">All in one Assistant</string>
+    <string name="phone_txt">PHONE</string>
+    <string name="email_txt">E-MAIL</string>
+    <string name="event_txt">EVENT</string>
+    <string name="phone_number_hint">Enter phone number...</string>
+    <string name="choose_action_txt">Choose an action</string>
+    <string name="add_contact_txt">Add to contacts</string>
+    <string name="call_txt">Call</string>
+    <string name="email_subject_hint">Subject:</string>
+    <string name="email_msg_hint">Your message...</string>
+    <string name="email_to_hint">To:</string>
+    <string name="send_txt">Send</string>
+    <string name="email_cc_txt">CC</string>
+    <string name="email_bcc_txt">BCC</string>
+    <string name="event_time_hint">00:00</string>
+    <string name="event_title_hint">Title</string>
+    <string name="event_info_txt">Add description</string>
+    <string name="add_to_calendar_txt">Add to calendar</string>
+    <string name="add_alarm_txt">Add alarm</string>
+    <string name="toast_number_conact">Enter number to add to contacts</string>
+    <string name="toast_number_call">Enter number to call</string>
+    <string name="toast_spt_not_support">This device does not support speech to text</string>
+    <string name="email_chooser">Choose your prefered e-mail app:</string>
+    <string name="event_date_hint">01/01/2011</string>
+    <string name="phone_number_hint_txt">050-1234567</string>
+    <string name="email_hint_txt">example@gmail.com</string>
+</resources>
