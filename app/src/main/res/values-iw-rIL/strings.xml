@@ -31,4 +31,5 @@
     <string name="enter_date">תאריך אירוע חסר</string>
     <string name="sms_txt">סמס</string>
     <string name="toast_number_sms">הכנס מספר לשליחת סמס</string>
+    <string name="note_txt">פתק זריז</string>
 </resources>

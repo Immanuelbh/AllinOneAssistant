@@ -30,4 +30,5 @@
     <string name="enter_date">Please enter a date</string>
     <string name="sms_txt">SMS</string>
     <string name="toast_number_sms">Enter number to SMS</string>
+    <string name="note_txt">QUICK NOTE</string>
 </resources>

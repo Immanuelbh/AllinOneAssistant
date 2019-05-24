@@ -3,9 +3,9 @@
     package="ijbh.com.allinoneassistant">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.SET_ALARM"/>
+    //<uses-permission android:name="android.cre" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-    <!--not working-->
 
     <application
         android:allowBackup="true"
@@ -14,16 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PhoneActivity"
-            android:theme="@style/SecondaryScreen"
+        <activity android:name=".NoteActivity"></activity>
+        <activity
+            android:name=".PhoneActivity"
             android:label="@string/phone_txt"
-            />
-        <activity android:name=".EmailActivity"
-            android:theme="@style/SecondaryScreen"
-            android:label="@string/email_txt"/>
-        <activity android:name=".EventActivity"
-            android:theme="@style/SecondaryScreen"
-            android:label="@string/event_txt"/>
+            android:theme="@style/SecondaryScreen" />
+        <activity
+            android:name=".EmailActivity"
+            android:label="@string/email_txt"
+            android:theme="@style/SecondaryScreen" />
+        <activity
+            android:name=".EventActivity"
+            android:label="@string/event_txt"
+            android:theme="@style/SecondaryScreen" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

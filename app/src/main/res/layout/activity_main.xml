@@ -114,23 +114,31 @@
             android:drawableEnd="@drawable/ic_today_black_24dp"
             android:hint="@string/event_date_hint"
             />
-        <EditText
-            android:visibility="gone"
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:background="#AF61C4"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/note_bg"
+        >
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/main_edit_text_background"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:paddingStart="24dp"
-            android:padding="7dp"
+            android:text="@string/note_txt"
+            android:textSize="50sp"
             android:gravity="center"
-            android:textSize="18sp"
-            android:inputType="date"
-            android:id="@+id/event_et"
-            android:drawableEnd="@drawable/ic_today_black_24dp"
-            android:hint="@string/event_date_hint"
+            android:id="@+id/note_tv"
             />
+
+
     </LinearLayout>
+
 
 
 </LinearLayout>

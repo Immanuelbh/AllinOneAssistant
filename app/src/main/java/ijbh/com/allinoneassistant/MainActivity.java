@@ -32,11 +32,13 @@ public class MainActivity extends Activity {
         LinearLayout phoneBg = findViewById(R.id.phone_bg);
         LinearLayout emailBg = findViewById(R.id.email_bg);
         LinearLayout eventBg = findViewById(R.id.event_bg);
+        LinearLayout noteBg = findViewById(R.id.note_bg);
 
         //titles
         TextView phoneTv = findViewById(R.id.phone_tv);
         TextView emailTv = findViewById(R.id.email_tv);
         TextView eventTv = findViewById(R.id.event_tv);
+        TextView noteTv = findViewById(R.id.note_tv);
 
         //input
         final EditText phoneEt = findViewById(R.id.phone_et);
@@ -221,6 +223,21 @@ public class MainActivity extends Activity {
 
                     }
                 });
+            }
+        });
+
+        noteTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent noteIntent = new Intent(MainActivity.this, NoteActivity.class);
+                startActivity(noteIntent);
+            }
+        });
+        noteBg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent noteIntent = new Intent(MainActivity.this, NoteActivity.class);
+                startActivity(noteIntent);
             }
         });
 

@@ -14,6 +14,8 @@ import android.widget.TextView;
 public class EmailActivity extends AppCompatActivity {
 
 
+    EditText emailAddressEt;
+
     //TODO:rearrange the file.
     @Override
     public boolean onSupportNavigateUp() {
@@ -28,12 +30,18 @@ public class EmailActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
 
-        final EditText emailAddressEt = findViewById(R.id.email_to_et);
+        emailAddressEt = findViewById(R.id.email_to_et);
+        Button sendBtn = findViewById(R.id.send_btn);
+        final EditText ccEt = findViewById(R.id.cc_et);
+        final EditText bccEt = findViewById(R.id.bcc_et);
+        final TextView ccTv = findViewById(R.id.cc_tv);
+        final TextView bccTv = findViewById(R.id.bcc_tv);
+
         emailAddressEt.setText(getIntent().getStringExtra("emailAddress"));
         emailAddressEt.clearFocus();
 
+        //listeners
         //intent to mail app
-        Button sendBtn = findViewById(R.id.send_btn);
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +50,6 @@ public class EmailActivity extends AppCompatActivity {
                 EditText emailCcEt = findViewById(R.id.cc_et);
                 EditText emailBccEt = findViewById(R.id.bcc_et);
 
-                //TODO check if sending an email should be SENDTO or SEND
                 if(!isEmpty(emailAddressEt)){
                     Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"+emailAddressEt.getText()));
                     //emailIntent.setType("text/plain");
@@ -51,18 +58,14 @@ public class EmailActivity extends AppCompatActivity {
 
                     emailIntent.putExtra(Intent.EXTRA_CC, new String[]{emailCcEt.getText().toString()});
                     emailIntent.putExtra(Intent.EXTRA_BCC, new String[]{emailBccEt.getText().toString()});
-
-                    startActivity(Intent.createChooser(emailIntent, getResources().getString(R.string.email_chooser)));
-
+                    if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(Intent.createChooser(emailIntent, getResources().getString(R.string.email_chooser)));
+                    }
                 }
             }
         });
 
         //cc and bcc
-        final EditText ccEt = findViewById(R.id.cc_et);
-        final EditText bccEt = findViewById(R.id.bcc_et);
-
-        final TextView ccTv = findViewById(R.id.cc_tv);
         ccTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,15 +82,12 @@ public class EmailActivity extends AppCompatActivity {
             }
         });
 
-        final TextView bccTv = findViewById(R.id.bcc_tv);
         bccTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(bccEt.getVisibility() == View.GONE){
                     bccEt.setVisibility(View.VISIBLE);
                     ccEt.requestFocus();
-                    //InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    //imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
                     bccTv.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_remove_black_24dp, 0, 0, 0);
 
                 }
@@ -100,6 +100,7 @@ public class EmailActivity extends AppCompatActivity {
         });
     }
 
+    //extra functions
     private boolean isEmpty(EditText etText) {
         return etText.getText().toString().trim().length() == 0;
     }
