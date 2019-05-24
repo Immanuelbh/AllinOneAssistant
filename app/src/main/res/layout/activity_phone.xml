@@ -28,30 +28,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/choose_action_txt"
-        android:layout_above="@id/phone_options"
+        android:layout_below="@id/phone_number_ed"
+
         android:textSize="15sp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:id="@+id/choose_optn"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:id="@+id/phone_options"
-        android:layout_centerInParent="true"
+        android:layout_centerInParent="false"
+        android:layout_below="@id/choose_optn"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         >
 
+
+
         <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/contacts_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/call_btn"
             android:layout_weight="1"
-            android:text="@string/add_contact_txt"
-            android:drawableBottom="@drawable/ic_person_add_white_48dp"
+            android:text="@string/call_txt"
+            android:drawableBottom="@drawable/ic_phone_in_talk_white_48dp"
             android:textSize="18sp"
             android:paddingTop="10dp"
             android:paddingLeft="0dp"
@@ -60,15 +65,33 @@
             android:background="@drawable/bg_btn_selector"
             android:textColor="@color/white"/>
         <Space
-            android:layout_width="10dp"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
         <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/call_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/sms_btn"
             android:layout_weight="1"
-            android:text="@string/call_txt"
-            android:drawableBottom="@drawable/ic_phone_in_talk_white_48dp"
+            android:text="@string/sms_txt"
+            android:drawableBottom="@drawable/ic_forum_white_48dp"
+            android:textSize="18sp"
+            android:paddingTop="10dp"
+            android:paddingLeft="0dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="0dp"
+            android:background="@drawable/bg_btn_selector"
+            android:textColor="@color/white"/>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:id="@+id/contacts_btn"
+            android:layout_weight="1"
+            android:text="@string/add_contact_txt"
+            android:drawableBottom="@drawable/ic_person_add_white_48dp"
             android:textSize="18sp"
             android:paddingTop="10dp"
             android:paddingLeft="0dp"

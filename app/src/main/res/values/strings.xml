@@ -28,4 +28,6 @@
     <string name="enter_phone">Please enter a phone number</string>
     <string name="enter_email">Please enter email</string>
     <string name="enter_date">Please enter a date</string>
+    <string name="sms_txt">SMS</string>
+    <string name="toast_number_sms">Enter number to SMS</string>
 </resources>

@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 public class EmailActivity extends AppCompatActivity {
 
+
+    //TODO:rearrange the file.
     @Override
     public boolean onSupportNavigateUp() {
         finish();
@@ -40,6 +42,7 @@ public class EmailActivity extends AppCompatActivity {
                 EditText emailCcEt = findViewById(R.id.cc_et);
                 EditText emailBccEt = findViewById(R.id.bcc_et);
 
+                //TODO check if sending an email should be SENDTO or SEND
                 if(!isEmpty(emailAddressEt)){
                     Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"+emailAddressEt.getText()));
                     //emailIntent.setType("text/plain");

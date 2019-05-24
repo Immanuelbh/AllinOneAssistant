@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         phoneEt.clearFocus();
 
         //background listeners
-        //TODO: put the repeating code into a seperate function.
+        //TODO: put the repeating code into a separate function.
         phoneBg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

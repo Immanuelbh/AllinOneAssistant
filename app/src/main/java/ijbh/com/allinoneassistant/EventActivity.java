@@ -18,6 +18,7 @@ import java.util.Calendar;
 
 public class EventActivity extends AppCompatActivity {
 
+    //TODO:rearrange the file.
     TextView eventDateTv;
     TextView eventTimeTv;
 

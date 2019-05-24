@@ -29,4 +29,6 @@
     <string name="enter_email">כתובת מייל חסרה</string>
     <string name="enter_phone">מספר טלפון חסר</string>
     <string name="enter_date">תאריך אירוע חסר</string>
+    <string name="sms_txt">סמס</string>
+    <string name="toast_number_sms">הכנס מספר לשליחת סמס</string>
 </resources>
