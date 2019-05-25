@@ -22,7 +22,6 @@
         android:padding="10dp"
 
         />
-        <!--android:inputType="text|textEmailSubject"-->
 
 
 
@@ -82,7 +81,6 @@
             />
     </LinearLayout>
 
-    <!--not sure if linear layout is needed-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
