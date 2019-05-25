@@ -5,8 +5,6 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.DatePicker;
@@ -19,12 +17,6 @@ import java.util.Calendar;
 
 public class MainActivity extends Activity {
 
-    int eventDay;
-    int eventMonth;
-    int eventYear;
-
-    //Intent eventActivity;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +26,11 @@ public class MainActivity extends Activity {
         LinearLayout phoneBg = findViewById(R.id.phone_bg);
         LinearLayout emailBg = findViewById(R.id.email_bg);
         LinearLayout eventBg = findViewById(R.id.event_bg);
-        LinearLayout noteBg = findViewById(R.id.note_bg);
 
         //titles
         TextView phoneTv = findViewById(R.id.phone_tv);
         TextView emailTv = findViewById(R.id.email_tv);
         TextView eventTv = findViewById(R.id.event_tv);
-        TextView noteTv = findViewById(R.id.note_tv);
 
         //input
         final EditText phoneEt = findViewById(R.id.phone_et);
@@ -205,48 +195,6 @@ public class MainActivity extends Activity {
                             }
                         }, year, month, day);
                 datePickerDialog.show();
-
-                //user entered a date - move to next screen
-                /*eventInputTv.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
-                        //Intent eventActivity = new Intent(MainActivity.this, EventActivity.class);
-                        //eventActivity.putExtra("eventDate", eventInputTv.getText().toString());
-
-                        //Toast.makeText(MainActivity.this, "year:" + eventActivity.getIntExtra("eventYear",3), Toast.LENGTH_SHORT).show();
-
-                        *//*eventActivity.putExtra("eventYear", eventYear);
-                        eventActivity.putExtra("eventMonth", eventMonth);
-                        eventActivity.putExtra("eventDay", eventDay);*//*
-                        //startActivity(eventActivity);
-
-                    }
-                });*/
-            }
-        });
-
-        noteTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent noteIntent = new Intent(MainActivity.this, NoteActivity.class);
-                startActivity(noteIntent);
-            }
-        });
-        noteBg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent noteIntent = new Intent(MainActivity.this, NoteActivity.class);
-                startActivity(noteIntent);
             }
         });
 

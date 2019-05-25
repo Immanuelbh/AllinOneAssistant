@@ -59,6 +59,18 @@
             android:padding="10dp"
             />
 
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/attach_btn"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_selector"
+            android:textColor="@color/white"
+            android:src="@drawable/ic_attach_file_white_24dp"
+            />
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="wrap_content" />
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"

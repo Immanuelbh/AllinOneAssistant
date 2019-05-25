@@ -13,13 +13,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import java.util.Calendar;
 
 public class EventActivity extends AppCompatActivity {
 
-    //TODO:rearrange the file.
     TextView eventDateTv;
     TextView eventTimeTv;
     EditText eventTitleEt;

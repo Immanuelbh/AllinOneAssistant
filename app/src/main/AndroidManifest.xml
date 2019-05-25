@@ -3,9 +3,12 @@
     package="ijbh.com.allinoneassistant">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    //<uses-permission android:name="android.cre" />
     <uses-permission android:name="android.permission.SET_ALARM" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +17,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NoteActivity"></activity>
         <activity
             android:name=".PhoneActivity"
             android:label="@string/phone_txt"
