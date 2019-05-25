@@ -23,6 +23,8 @@ public class MainActivity extends Activity {
     int eventMonth;
     int eventYear;
 
+    //Intent eventActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -185,7 +187,6 @@ public class MainActivity extends Activity {
                 int month = c.get(Calendar.MONTH);
                 int day = c.get(Calendar.DAY_OF_MONTH);
 
-
                 DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
 
@@ -193,18 +194,20 @@ public class MainActivity extends Activity {
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
 
+                                Intent eventActivity = new Intent(MainActivity.this, EventActivity.class);
                                 eventInputTv.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                eventActivity.putExtra("eventDate", eventInputTv.getText().toString());
+                                eventActivity.putExtra("eventYear", year);
+                                eventActivity.putExtra("eventMonth", monthOfYear);
+                                eventActivity.putExtra("eventDay", dayOfMonth);
 
-
-                                eventDay = dayOfMonth;
-                                eventMonth = monthOfYear;
-                                eventYear = year;
+                                startActivity(eventActivity);
                             }
                         }, year, month, day);
                 datePickerDialog.show();
 
                 //user entered a date - move to next screen
-                eventInputTv.addTextChangedListener(new TextWatcher() {
+                /*eventInputTv.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -217,12 +220,18 @@ public class MainActivity extends Activity {
 
                     @Override
                     public void afterTextChanged(Editable s) {
-                        Intent eventActivity = new Intent(MainActivity.this, EventActivity.class);
-                        eventActivity.putExtra("eventDate", eventInputTv.getText().toString());
-                        startActivity(eventActivity);
+                        //Intent eventActivity = new Intent(MainActivity.this, EventActivity.class);
+                        //eventActivity.putExtra("eventDate", eventInputTv.getText().toString());
+
+                        //Toast.makeText(MainActivity.this, "year:" + eventActivity.getIntExtra("eventYear",3), Toast.LENGTH_SHORT).show();
+
+                        *//*eventActivity.putExtra("eventYear", eventYear);
+                        eventActivity.putExtra("eventMonth", eventMonth);
+                        eventActivity.putExtra("eventDay", eventDay);*//*
+                        //startActivity(eventActivity);
 
                     }
-                });
+                });*/
             }
         });
 

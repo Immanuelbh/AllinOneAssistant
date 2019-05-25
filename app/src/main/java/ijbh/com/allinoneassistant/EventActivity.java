@@ -13,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -21,9 +22,6 @@ public class EventActivity extends AppCompatActivity {
     //TODO:rearrange the file.
     TextView eventDateTv;
     TextView eventTimeTv;
-
-    //EditText eventDateEt;
-    //EditText eventTimeEt;
     EditText eventTitleEt;
 
     int eventMinute;
@@ -45,23 +43,46 @@ public class EventActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
 
+        //
         eventTitleEt = findViewById(R.id.event_title_et);
+        eventDateTv = findViewById(R.id.event_date_tv);
+        eventTimeTv = findViewById(R.id.event_time_tv);
+        final TextView eventInfoTv = findViewById(R.id.add_info_tv);
+        final EditText eventInfoEt = findViewById(R.id.add_info_et);
+        Button alarmBtn = findViewById(R.id.alarm_btn);
+        final Button calendarBtn = findViewById(R.id.calendar_btn);
 
+        //get current time
+        Calendar time = Calendar.getInstance();
+        int hour = time.get(Calendar.HOUR_OF_DAY);
+        int minute = time.get(Calendar.MINUTE);
+        if(minute < 10){
+            eventTimeTv.setText(hour + ":" + "0" + minute);
+        }
+        else{
+            eventTimeTv.setText(hour + ":" + minute);
+        }
+
+        eventHour = hour;
+        eventMinute = minute;
+
+        //listeners
+        //current date
         Calendar current = Calendar.getInstance();
         int year = current.get(Calendar.YEAR);
         int month = current.get(Calendar.MONTH);
         int day = current.get(Calendar.DAY_OF_MONTH);
 
-        //get date
-        eventDateTv = findViewById(R.id.event_date_tv);
+        //get date from previous intent or default
         if(getIntent().getStringExtra("eventDate") != null){
             eventDateTv.setText(getIntent().getStringExtra("eventDate"));
+            eventYear = getIntent().getIntExtra("eventYear", 0);
+            eventMonth = getIntent().getIntExtra("eventMonth", 0);
+            eventDay = getIntent().getIntExtra("eventDay", 0);
         }
         else{
             eventDateTv.setText(day + "/" + (month + 1) + "/" + year);
         }
-
-        //eventDate.setText(current.DAY_OF_MONTH + "/" + (current.MONTH + 1) + "/" + current.YEAR);
 
         eventDateTv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +92,6 @@ public class EventActivity extends AppCompatActivity {
                 int year = c.get(Calendar.YEAR);
                 int month = c.get(Calendar.MONTH);
                 int day = c.get(Calendar.DAY_OF_MONTH);
-
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(EventActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
@@ -91,31 +111,13 @@ public class EventActivity extends AppCompatActivity {
             }
         });
 
-        //get time
-        eventTimeTv = findViewById(R.id.event_time_tv);
-        Calendar c = Calendar.getInstance();
-        int hour = c.get(Calendar.HOUR_OF_DAY);
-        int minute = c.get(Calendar.MINUTE);
-        if(minute < 10){
-            eventTimeTv.setText(hour + ":" + "0" + minute);
-        }
-        else{
-            eventTimeTv.setText(hour + ":" + minute);
-        }
-
-        eventHour = hour;
-        eventMinute = minute;
-
-        //eventTime.setText(current.HOUR_OF_DAY + ":" + current.MINUTE);
-
         eventTimeTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Get Current time
-                final Calendar c = Calendar.getInstance();
-                int hour = c.get(Calendar.HOUR_OF_DAY);
-                int minute = c.get(Calendar.MINUTE);
-
+                final Calendar time = Calendar.getInstance();
+                int hour = time.get(Calendar.HOUR_OF_DAY);
+                int minute = time.get(Calendar.MINUTE);
 
                 TimePickerDialog timePickerDialog = new TimePickerDialog(EventActivity.this,
                         new TimePickerDialog.OnTimeSetListener() {
@@ -138,11 +140,7 @@ public class EventActivity extends AppCompatActivity {
             }
         });
 
-
         //add info
-        final TextView eventInfoTv = findViewById(R.id.add_info_tv);
-        final EditText eventInfoEt = findViewById(R.id.add_info_et);
-
         eventInfoTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,7 +157,6 @@ public class EventActivity extends AppCompatActivity {
         });
 
         //setting an alarm
-        Button alarmBtn = findViewById(R.id.alarm_btn);
         alarmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,37 +164,32 @@ public class EventActivity extends AppCompatActivity {
                 alarmIntent.putExtra(AlarmClock.EXTRA_HOUR, eventHour);
                 alarmIntent.putExtra(AlarmClock.EXTRA_MINUTES, eventMinute);
                 alarmIntent.putExtra(AlarmClock.EXTRA_MESSAGE, eventTitleEt.getText().toString());
-
-                startActivity(alarmIntent);
-
+                if (alarmIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(alarmIntent);
+                }
             }
         });
 
         //setting calendar event
-        final Button calendarBtn = findViewById(R.id.calendar_btn);
         calendarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar c = Calendar.getInstance();
+
+                Calendar beginCal = Calendar.getInstance();
+                beginCal.set(eventYear, eventMonth, eventDay, eventHour, eventMinute);
 
                 Intent calendarIntent = new Intent(Intent.ACTION_INSERT);
-                //calendarIntent.setData(CalendarContract.Events.CONTENT_URI);
                 calendarIntent.setType("vnd.android.cursor.item/event");
+
                 calendarIntent.putExtra(CalendarContract.Events.TITLE, eventTitleEt.getText().toString());
-                //calendarIntent.putExtra(CalendarContract.Events.DTSTART, );
-                //calendarIntent.putExtra(CalendarContract.Events., );
-                calendarIntent.putExtra("beginTime", c.getTimeInMillis());
-                calendarIntent.putExtra("endTime", c.getTimeInMillis()+ 60 * 60 * 1000);
+                calendarIntent.putExtra("beginTime", beginCal.getTimeInMillis());
+                calendarIntent.putExtra("endTime", beginCal.getTimeInMillis()+ 60 * 60 * 1000);
                 calendarIntent.putExtra("title", eventTitleEt.getText().toString());
                 calendarIntent.putExtra(CalendarContract.Events.DESCRIPTION, eventInfoEt.getText().toString());
-                //calendarIntent.putExtra("allDay", true);
-
-
-
-                startActivity(calendarIntent);
+                if (calendarIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(calendarIntent);
+                }
             }
         });
-
     }
-
 }
